@@ -1,0 +1,188 @@
+/*
+Template Name: Monster Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*
+Template Name: Monster Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+@import 'https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900';
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff;
+}
+
+.preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px);
+}
+
+/*******************
+/*Top bar
+*******************/
+.topbar {
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/*******************
+/*General Elements
+*******************/
+a {
+  color: #00697a;
+}
+
+a.link:hover, a.link:focus {
+  color: #00697a !important;
+}
+
+.bg-theme {
+  background-color: #00697a !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #00697a;
+  border-color: #00697a;
+}
+
+.right-sidebar .rpanel-title {
+  background: #00697a;
+}
+
+.stylish-table tbody tr:hover, .stylish-table tbody tr.active {
+  border-left: 4px solid #00697a;
+}
+
+.text-themecolor {
+  color: #00697a !important;
+}
+
+.profile-tab li a.nav-link.active,
+.customtab li a.nav-link.active {
+  border-bottom: 2px solid #00697a;
+  color: #00697a;
+}
+
+.profile-tab li a.nav-link:hover,
+.customtab li a.nav-link:hover {
+  color: #00697a;
+}
+
+/*******************
+/*Buttons
+*******************/
+.btn-themecolor,
+.btn-themecolor.disabled {
+  background: #00697a;
+  color: #ffffff;
+  border: 1px solid #00697a;
+}
+
+.btn-themecolor:hover,
+.btn-themecolor.disabled:hover {
+  background: #00697a;
+  opacity: 0.7;
+  border: 1px solid #00697a;
+}
+
+.btn-themecolor.active, .btn-themecolor:focus,
+.btn-themecolor.disabled.active,
+.btn-themecolor.disabled:focus {
+  background: #028ee1;
+}
+
+/*******************
+/*sidebar navigation
+*******************/
+.card-no-border .left-sidebar, .card-no-border .sidebar-nav {
+  background: #00697a;
+}
+
+.mini-sidebar .sidebar-nav {
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
+    background: #181c22;
+  }
+}
+
+.sidebar-nav {
+  background: #00697a;
+}
+
+.sidebar-nav ul li a {
+  color: #ffffff;
+}
+
+.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+  color: #ffffff;
+  background: #008aa0;
+}
+
+.sidebar-nav ul li a.active {
+  color: #ffffff;
+}
+
+.sidebar-nav ul li.nav-small-cap {
+  color: #90a4ae;
+}
+
+.sidebar-nav > ul > li.active > a {
+  color: #ffffff;
+  background: #008aa0;
+}
+
+.sidebar-nav > ul > li.active > a i {
+  color: #ffffff;
+}
+
+.sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+  color: #ffffff;
+}
+
+.sidebar-nav > ul > li > a i {
+  color: #ffffff;
+}
+
+.sidebar-nav > ul > li > a.active {
+  font-weight: 400;
+  background: #008aa0 !important;
+  color: #ffffff;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile .profile-text a {
+  color: #ffffff !important;
+}
+
+.card-no-border .sidebar-footer {
+  background: #181c22;
+}
+
+.sidebar-nav #sidebarnav > li > ul {
+  background: #00697a !important;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <script>var option_menu_datos;</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="//db.onlinewebfonts.com/c/d1e68618334201202960f1b52f335f99?family=SavignyW01-LightNorm" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <style>
+        #map_impactos_produccion {
+            width: 100%;
+            height: 400px;
+        }
+        .legend {
+            background-color: white;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+    </style>       
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/style.css">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/colors/default-dark.css" id="theme">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="css/custom.css"> -->
+    <!-- <link href="monster/css/colors/blue.css" id="theme" rel="stylesheet"> -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' /><link >
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="stylescovid.css">
+
+    <style type="text/css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        .loader{position: fixed; top: 0; left: 0; padding-top: 20vh; text-align: center; z-index: 800; content: ''; height: 100vh; width: 100%;}
+    </style>
+    <link href="https://blogfonts.com/css/aWQ9MTAxODg5JnN1Yj04ODkmYz1nJnR0Zj1ncmVub2JsZS1zZXJpYWwtZXh0cmFib2xkLXJlZ3VsYXIudHRmJm49Z3Jlbm9ibGUtc2VyaWFsLWV4dHJhYm9sZA/Grenoble-Serial-ExtraBold.ttf" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+</head>
+
+<body class="fix-header card-no-border">
+    <div class="modal fade" id="exampleModal" role="dialog"></div>
+    <div id="main-wrapper">
+        <div class="" style="padding-bottom: 0px !important;" id="page_wrapper">
+        <!-- page-wrapper -->
+            
+            <div class="container-fluid" style="height: 100%; min-width:100vw !important;">  
+            	<div class="row">
+                    <div class="col-12" >
+                        <h2 class="text-center flar-blue-dark m-b-30">Impacto en el sector arrocero</h2>
+                    </div>
+                    <div class="col-lg-8 col-md-12 p-l-0 p-r-0 m-b-30">
+                        <img style="width: 100%;" src="seccioncovid/COVID-19_ImpactoPoliticas_AGO2020.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row text-justify" class="analisis-politicas" style="height: 60vh; overflow-y: scroll;">
+                            <div class="col-12">
+                                <h3 class="flar-blue-dark">Análisis de políticas</h3>
+                                <p>
+                                    El impacto que las medias implementadas han tenido en rubro arrocero son difíciles de cuantificar en el corto plazo y no fueron objeto del diagnóstico. El presenta esquema presenta los posibles beneficios que estas medidas pueden tener la cadena de valor del arroz. 
+                                </p>
+                                <p>
+                                    Medidas enfocadas en el desarrollo logístico de la cadena de valor y la digitalización de procesos pueden reducir los costos de transacción al facilitar ciertos procesos, ya sea a nivel del productor o de la industria, mientras que las normas de inocuidad benefician a los trabajadores de la cadena al reducir la posibilidad de contagio, y al consumidor, al otorgarle un producto de mayor calidad.
+                                </p>
+                                <p>
+                                    Las medidas de apoyo al productor, de cumplir su objetivo de incentivar la producción, pueden incrementar la oferta de arroz en el mediano plazo, beneficiando a su vez a los proveedores de insumos a través de una mayor demanda de los mismos. Por su lado, las compras directas por parte de los gobiernos generaron un beneficio inmediato para los productores y las industrias de arroz en algunos países. Asimismo, las medidas de apoyo al consumidor pueden favorecer la demanda.
+                                </p>
+                                <p>
+                                    En cuanto a las políticas de comercio exterior, el impacto varía según el contexto y la perspectiva. La aprobación de nuevos contingentes de importación puede beneficiar al consumidor al incrementar la oferta y reducir los precios, pero a su vez representa un riesgo para los productores cuando estos están en la capacidad de satisfacer esa oferta. Esta política podría también afectar la competitividad de otros países de la región, bajo un escenario en el que el arroz importado con preferencias arancelarias sea exportado a otros países. Por otro lado, políticas enfocadas en la restricción de importaciones podría incrementar los precios en los mercados nacionales, afectando a los consumidores y a exportadores regionales, a favor de los productores locales.
+                                </p>
+                                <p>
+                                    En cuanto a las exportaciones, favorecer las exportaciones podría afectar la oferta local, no obstante, a nivel regional exportadores como Uruguay, Argentina, Paraguay y Guyana logran abastecer la demanda local sin problemas. En Ecuador se priorizó el mercado local sobre las exportaciones, debido a un incremento en los precios a nivel nacional. En contraposición, la restricción a las exportaciones podría reducir el precio en el mercado nacional o incrementar el precio en el mercado internacional, ya sea en función de la oferta y demanda en el mercado nacional o la magnitud que representa el país en la oferta exportable a nivel mundial o regional. 
+                                </p>
+                                <p>
+                                    El impacto de este conjunto de políticas varía en magnitud, alcance y temporalidad, además de estar en estrecha relación con la coyuntura de cada país. Los cambios que estas políticas generen por el lado de la oferta, ya sea por cambios en la producción o en el flujo de comercio internacional, o la demanda, tanto del consumidor nacional como de las oportunidades de exportación, va a afectar el precio del arroz al consumidor. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src="plugins/jquery/jquery.min.js" ></script>
+    <script src="plugins/bootstrap/js/popper.min.js"  ></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"  ></script>
+    <script src="js/jquery.slimscroll.js"  ></script>
+    <script src="js/sidebarmenu.js"  ></script>
+    <script src="plugins/sticky-kit-master/dist/sticky-kit.min.js"  ></script>
+    <script src="js/custom.min.js" ></script>
+    <script src="custom.min.js" ></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <script>var option_menu_datos;</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="//db.onlinewebfonts.com/c/d1e68618334201202960f1b52f335f99?family=SavignyW01-LightNorm" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <style>
+        #map_impactos_produccion {
+            width: 100%;
+            height: 400px;
+        }
+        .legend {
+            background-color: white;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+    </style>       
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/style.css">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/colors/default-dark.css" id="theme">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="css/custom.css"> -->
+    <!-- <link href="monster/css/colors/blue.css" id="theme" rel="stylesheet"> -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' /><link >
+    <link rel="stylesheet" href="stylescovid.css">
+
+    <style type="text/css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        .loader{position: fixed; top: 0; left: 0; padding-top: 20vh; text-align: center; z-index: 800; content: ''; height: 100vh; width: 100%;}
+    </style>
+    <link href="https://blogfonts.com/css/aWQ9MTAxODg5JnN1Yj04ODkmYz1nJnR0Zj1ncmVub2JsZS1zZXJpYWwtZXh0cmFib2xkLXJlZ3VsYXIudHRmJm49Z3Jlbm9ibGUtc2VyaWFsLWV4dHJhYm9sZA/Grenoble-Serial-ExtraBold.ttf" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+</head>
+
+<body class="fix-header card-no-border">
+    <div class="modal fade" id="exampleModal" role="dialog"></div>
+    <div id="main-wrapper">
+        <div class="" style="padding-bottom: 0px !important;" id="page_wrapper">
+        <!-- page-wrapper -->
+            
+            <div class="container-fluid" style="height: 100%; min-width:100vw !important;">  
+            	<div class="row">
+                    <div class="col-12" >
+                        <h2 class="text-center flar-blue-dark m-b-30">Politicas para mitigar los efectos </h2>
+                    </div>
+                    <div class="col-lg-8 col-md-12 p-l-0 p-r-0 m-b-30" >
+                        <table border="1" width="100%">
+                            <thead>
+                                <tr>
+                                    <th style="width:300px">Enfoque</th>
+                                    <th>Medida</th>
+                                    <th class="middle">Países donde se han implementado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell1column1" rowspan="3" style="background: #0E1F80">Medidas para garantizar el funcionamiento del sector 1</td>
+                                    <td class="cell1-table">Digitalización de procesos </td>
+                                    <td class="cell2-table">Argentina, Bolivia, Brasil, Chile, Costa Rica, Ecuador, Honduras y México</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell1-table">Desarrollo logístico </td>
+                                    <td class="cell2-table">Argentina, Bolivia, Brasil, Chile, Costa Rica, Ecuador, Guatemala, Honduras, Paraguay, Perú, Uruguay y Venezuela</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell1-table">Normas de inocuidad </td>
+                                    <td class="cell2-table">Brasil, Costa Rica, Ecuador, Guyana, Perú y Uruguay</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4" class="cell2column2">Medidas de apoyo al productor </td>
+                                    <td class="cell22-table">Alivio financiero </td>
+                                    <td class="cell23-table">Brasil, Chile, Colombia, Costa Rica, Ecuador, Panamá, Paraguay, Perú, República Dominicana y Venezuela</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell22-table">Compras directas </td>
+                                    <td class="cell23-table">Panamá, Perú y República Dominicana</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell22-table">Financiamiento </td>
+                                    <td class="cell23-table">Argentina, Brasil, Colombia, Costa Rica, Honduras, México, Panamá, Paraguay, República Dominicana y Uruguay</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell22-table">Entrega de insumos </td>
+                                    <td class="cell23-table">Paraguay</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" class="cell3column3">Políticas de apoyo al consumidor </td>
+                                    <td class="cell31-table">Bolsas de alimentos </td>
+                                    <td class="cell32-table">Argentina, Bolivia, Brasil, Colombia, Costa Rica, Ecuador, El Salvador, Guatemala, Honduras, Panamá, Paraguay, República Dominicana, Uruguay y Venezuela</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell31-table">Transferencias monetarias </td>
+                                    <td class="cell32-table">Argentina, Bolivia, Brasil, Chile, Colombia, Panamá, Perú, República Dominicana y Venezuela</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell31-table">Control de precios </td>
+                                    <td class="cell32-table">Argentina, Colombia, Ecuador, El Salvador, Honduras y México</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="cell4column4" >Políticas de comercio exterior </td>
+                                    <td class="cell41-table">Facilitación de las exportaciones </td>
+                                    <td class="cell42-table">Brasil, Chile, Costa Rica, México, República Dominicana y Uruguay</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell41-table">Facilitación de las importaciones </td>
+                                    <td class="cell42-table">Argentina, Chile, Costa Rica, El Salvador, Guatemala, Honduras, México, Panamá y Perú</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row text-justify" style="height: 90vh; overflow-y: scroll;">
+                            <div class="col-12">
+                                <h3 class="flar-blue-dark">Políticas</h3>
+                                    <p>Durante el periodo de pandemia las autoridades gubernamentales de la región han implementado una serie 
+                                        políticas y acciones enfocadas en mitigar los impactos de la pandemia. Las medidas implementadas para 
+                                        el fortalecimiento del sector agroalimentario se han enfocado principalmente hacia el fortalecimiento 
+                                        del sector, a fin de incentivar la producción de alimentos y asegurar el abastecimiento durante el 
+                                        periodo de confinamiento y en el mediano plazo. A través de una encuesta con actores clave del sector 
+                                        se elaboró un inventario de estas medidas, trabajo que se complementó con información recopilada en el 
+                                        inventario de <a href="https://blog.iica.int/blog/medidas-politica-acciones-del-sector-agroalimentario-frente-al-covid-19" target="_blank">Medidas de política y acciones del sector agroalimentario frente al COVID-19</a>, elaborado por 
+                                        el Instituto Interamericano de Cooperación para la Agricultura (IICA).
+                                    </p> 
+                                    <p>Para facilitar su análisis estas medidas se categorizaron en cuatro grupos, según su enfoque. </p>
+                                <div>
+                                    <ol>
+                                        <li>
+                                            <span class="bolder-litext">Medidas para garantizar el funcionamiento del sector agroalimentario:</span> Acciones implementadas para garantizar el funcionamiento del sector agroalimentario durante la pandemia. Estas medidas se agrupan en:
+                                            <ol type="a">
+                                                <li><span class="bolder-litext">Digitalización de procesos: </span> Facilitación de trámites en línea y creación de plataformas virtuales de información</li>
+                                                <li><span class="bolder-litext">Desarrollo logístico: </span> Exención del sector agroalimentario de las medidas de confinamiento y restricción a la movilización, creación de protocolos y corredores logísticos y facilitación de trámites. </li>
+                                                <li><span class="bolder-litext">Normas de inocuidad:</span> Desarrollo de protocolos y normas para minimizar el contagio de COVID-19 en la cadena de suministro de alimentos.  </li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <span class="bolder-litext">Medidas de apoyo al productor: </span>Medidas de apoyo directo al productor con el objetivo de garantizar la producción de alimentos durante la pandemia y garantizar el suministro en el corto y mediano plazo. Estas medidas se agrupan en:
+                                            <ol type="a">
+                                                <li><span class="bolder-litext">Medidas de alivio financiero: </span> Flexibilización en las condiciones crediticias, diferimiento en el pago de servicios y descuentos de diversa índole.</li>
+                                                <li><span class="bolder-litext">Compras directas: </span> Compras directas de alimentos a productores o industrias por parte de entidades gubernamentales para el suministro de alimentos a sectores vulnerables de la población. </li>
+                                                <li><span class="bolder-litext">Financiamiento:</span> Habilitación de nuevas líneas de financiamiento con condiciones crediticias favorables para garantizar e incentivar la producción de alimentos en el corto y mediano plazo. </li>
+                                                <li><span class="bolder-litext">Entrega de insumos:</span> Entrega de insumos para la producción a fin para garantizar e incentivar la producción de alimentos en el corto y mediano plazo. </li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <span class="bolder-litext">Medidas de apoyo al consumidor:  </span>Medidas de apoyo directo a la población, particularmente a los sectores más afectados por las restricciones implementadas por los gobiernos nacionales. Estas medidas se agrupan en:
+                                            <ol type="a">
+                                                <li><span class="bolder-litext">Bolsas de alimentos:</span> Entrega de alimentos o bonos canjeables a los sectores más vulnerables de la población. </li>
+                                                <li><span class="bolder-litext">Transferencias monetarias: </span> Pago de bonos monetarios a los sectores más vulnerables de la población para la compra de bienes y servicios diversos, incluido la compra de alimentos. </li>
+                                                <li><span class="bolder-litext">Control de precios:  </span> Control de precios de los alimentos por parte de las entidades gubernamentales a fin de evitar el agio y la especulación. </li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <span class="bolder-litext">Medidas de comercio exterior:  </span>Medidas enfocadas a garantizar la exportación e importación de alimentos e insumos para la producción durante la pandemia. Estas medidas incluyen la facilitación para la obtención de certificados fitosanitarios y de origen, desarrollo de protocolos logísticos en puertos y medidas de alivio arancelario. 
+                                            <ol type="a">
+                                                <li><span class="bolder-litext">Facilitación de las importaciones:</span> Medidas relacionadas a garantizar las importaciones. </li>
+                                                <li><span class="bolder-litext">Facilitación de las exportaciones: </span> Medidas relacionadas a garantizar las exportaciones.</li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src="plugins/jquery/jquery.min.js" ></script>
+    <script src="plugins/bootstrap/js/popper.min.js"  ></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"  ></script>
+    <script src="js/jquery.slimscroll.js"  ></script>
+    <script src="js/sidebarmenu.js"  ></script>
+    <script src="plugins/sticky-kit-master/dist/sticky-kit.min.js"  ></script>
+    <script src="js/custom.min.js" ></script>
+    <script src="custom.min.js" ></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <script>var option_menu_datos;</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="//db.onlinewebfonts.com/c/d1e68618334201202960f1b52f335f99?family=SavignyW01-LightNorm" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <style>
+        #map_impactos_produccion {
+            width: 100%;
+            height: 400px;
+        }
+        .legend {
+            background-color: white;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+    </style>       
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/style.css">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="monster/css/colors/default-dark.css" id="theme">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="css/custom.css"> -->
+    <!-- <link href="monster/css/colors/blue.css" id="theme" rel="stylesheet"> -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' /><link >
+    <link rel="stylesheet" href="css/style-unminify.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="stylescovid.css">
+
+    <style type="text/css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        .loader{position: fixed; top: 0; left: 0; padding-top: 20vh; text-align: center; z-index: 800; content: ''; height: 100vh; width: 100%;}
+    </style>
+    <link href="https://blogfonts.com/css/aWQ9MTAxODg5JnN1Yj04ODkmYz1nJnR0Zj1ncmVub2JsZS1zZXJpYWwtZXh0cmFib2xkLXJlZ3VsYXIudHRmJm49Z3Jlbm9ibGUtc2VyaWFsLWV4dHJhYm9sZA/Grenoble-Serial-ExtraBold.ttf" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+</head>
+
+<body class="fix-header card-no-border">
+    <div class="modal fade" id="exampleModal" role="dialog"></div>
+    <div id="main-wrapper">
+        <div class="" style="padding-bottom: 0px !important;" id="page_wrapper">
+        <!-- page-wrapper -->
+            
+            <div class="container-fluid" style="height: 100%; min-width:100vw !important;">  
+            	<div class="row">
+                    <div class="col-12"><h2 class="text-center flar-blue-dark">Foros sobre el efecto de la pandemia del COVID-19 en el sector arrocero de América Latina y El Caribe </h2></div>
+                    <div class="col-lg-8 col-md-12 m-b-30" >
+                        
+                        <div class="text-justify">
+                            <p>La actual Pandemia del COVID-19 ha transformado los sistemas alimentarios a nivel mundial, impactando todos los eslabones de la cadena de suministro de alimentos, desde los sistemas productivos hasta la composición de la dieta de las personas. El sector arrocero en América Latina y el Caribe no ha estado exento de estos impactos, pero a diferencia de otros sectores, se ha abierto una puerta de oportunidades para el sector.</p>
+                            <p>Esta fue la principal conclusión de los dos foros virtuales organizados por el Programa de Arroz de la Alianza de Bioversity International y el CIAT, el Fondo Latinoamericano para Arroz de Riego (FLAR) y Harvest Plus sobre el impacto de la pandemia en el sector arrocero de América Latina y el Caribe (ALC). En el primer foro se presentaron los resultados de un diagnóstico participativo con actores claves del sector a nivel regional, dando un preámbulo de discusión para un segundo foro, donde tres panelistas analizaron la situación y presentaron posibles escenarios y alternativas para el sector en temas de nutrición y mercados. Un total de 591 participantes de 28 países participaron en ambos seminarios, quienes también tuvieron la oportunidad de intervenir aportando con experiencias a nivel nacional y perspectivas en el corto plazo.</p>
+                            <p><i>Si bien los impactos que ha provocado la pandemia en el sector son tan heterogéneos como lo son los sistemas productivos de arroz entre los países de la región, los expertos coincidieron en que la coyuntura actual puede abrir una serie de oportunidades para desarrollar el sector, ya que como afirma Gisella Luque de Argentina, “el arroz está más presente que nunca en la mesa de los consumidores”.</i></p>
+                            
+
+                            <h4 class="flar-blue-dark"> Perspectivas sobre el impacto de la pandemia en el sector: Opinión de expertos </h4>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12  col-md-3">
+                                        <img class="foto-foros" src="seccioncovid/Javier_Cuenca.png" alt="Javier_Cuenca.png">
+                                        <p class="text-center"><b>Javier Sánchez Cuenca</b></p>
+                                        <p class="detalle-experto-foros">Coordinador del proyecto regional de fortificación de arroz para América Latina del Programa Mundial de Alimentos (PMA)</p>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <p>Javier resalta el potencial del arroz para mejorar la seguridad alimentaria y nutricional a través de la fortificación, describiendo el contexto actual como “una crisis alimentaria grave”. Dado el protagonismo del arroz en las dietas a nivel regional, Javier considera al alimento como “un vehículo ideal para los programas de fortificación”.</p>
+                                        <p>El arroz ha sido un común denominador en las respuestas de protección social para reducir el impacto de la crisis, ya sea de forma indirecta a través de las bolsas de alimentos o indirectamente a través de las transferencias monetarias. Javier cita el ejemplo de Perú y República Dominicana, donde el arroz fortificado fue incluido dentro de las bolsas de alimentos otorgadas por las autoridades durante el confinamiento.</p>
+                                        <p><i>“La crisis es una ventana de oportunidad para mejorar el aporte nutricional de la canasta básica y repensar el papel del arroz en el desarrollo económico y social de la región”</i></p>
+                                        
+                                                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-md-3">
+                                        <img class="foto-foros" src="seccioncovid/Alvaro_Durand.jpg" alt="Alvaro_Durand.jpg">
+                                        <p class="text-center"><b>Álvaro Durand Morat</b></p>  
+                                        <p class="detalle-experto-foros" > Profesor Asistente en el Departamento de Economía Agrícola y Agronegocios de la Universidad de Arkansas </p>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <p>Álvaro proyecta dos escenarios para el sector en función de la contención de la pandemia. Si la pandemia se contiene se espera que se tenga <i>“un impacto positivo a nivel de producción global…y un incremento en la demanda” </i> pero una <i>“posible caída en el comercio internacional”</i> En caso de que la pandemia se extienda, a nivel mundial se proyecta una <i>“caída en la producción por falta de acceso a crédito y mano de obra, problemas en la cadena de logística y distribución y caída del comercio internacional”</i> a nível global.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-md-3">
+                                        <img class="foto-foros" src="seccioncovid/Tabare_Aguerre.jpg" alt="Tabare_Aguerre.jpg">
+                                        <p class="text-center" ><b>Tabaré Aguerre</b> </p> 
+                                        <p class="detalle-experto-foros"> Ingeniero agrónomo, empresario agropecuario, consultor de la FAO y Ex-ministro de agricultura del Uruguay </p>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                       <p>Tabaré aborda el tema desde un punto de vista estratégico y a largo plazo, apuntando a explotar las potencialidades de la región. Tabaré considera que el costo de oportunidad del agua que China destina para la producción de arroz, puede en un futuro abrir oportunidades comerciales para la región, al incrementar la demanda de China de arroz importado, considerando a América Latina y El Caribe como una <i>“región rica en agua y con ventajas comparativas para aumentar la producción”.</i>.</p>
+                                       <p>Tabaré resalta la importancia de utilizar las plataformas regionales de integración para pensar en el largo plazo, <i>“en términos de no tratar de vender lo que producimos, sino de tratar de producir lo que prospectivamente identificamos que se va a poder consumir en el futuro”.</i>. También resalta la importancia en explotar las ventajas competitivas de la región como <i>“investigación, aumento de la producción, sostenibilidad ambiental, social y económica… pero fundamentalmente utilizar el agua agregándole valor mediante todos esos procesos”</i></p>
+                                       <p><i>“Creo que esta es una oportunidad de revalorizar al arroz como alimento… de repensar en esa clave que va de seguridad alimentaria a soberanía alimentaria”.</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p><b>Para mayor información podrás acceder a las grabaciones de ambos foros y sus respectivas transcripciones en el panel derecho. </b></p>
+                            <div><img style="width: 100%;" src="seccioncovid/Balance_Foros.png" alt="Balance Foros"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row">
+                            <div class="col-12 mb-5 text-center"><iframe width="90%" height="360" src="https://app.gotowebinar.com/unified/index.html#/embedded/recording/2431d127d6cb4c8e882d1de74d5514f2?source=G2S-EMBEDDED" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                            <div class="col-12 m-b-10 text-center"><iframe width="90%" height="360" src="https://app.gotowebinar.com/unified/index.html#/embedded/recording/32a2e5c0aec04e4593eb45959e2555c4?source=G2S-EMBEDDED" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                            <div class="col-12 el-element-overlay">
+                                <div class="card" style="width: 80%; margin: 0 auto">
+                                    <div class="el-card-item">
+                                        <div class="el-card-avatar el-overlay-1 border">
+                                            <img src="seccioncovid/ReporteCovid.png" alt="Reporte Covid" width="80%" height="80%" />
+                                            <div class="el-overlay">
+                                                <ul class="el-info">
+                                                    <li><a class="btn default btn-outline" target="_blank" href="https://cgspace.cgiar.org/handle/10568/108967"><i class="icon-link"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="el-card-content">
+                                            <h3 class="box-title"><a target="_blank" href="https://cgspace.cgiar.org/handle/10568/108967">Efecto de la pandemia del COVID-19 en el sector arrocero de América Latina y El Caribe: Un diagnóstico participativo</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src="plugins/jquery/jquery.min.js" ></script>
+    <script src="plugins/bootstrap/js/popper.min.js"  ></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"  ></script>
+    <script src="js/jquery.slimscroll.js"  ></script>
+    <script src="js/sidebarmenu.js"  ></script>
+    <script src="plugins/sticky-kit-master/dist/sticky-kit.min.js"  ></script>
+    <script src="js/custom.min.js" ></script>
+    <script src="custom.min.js" ></script>
+    
+</body>
+
+</html>

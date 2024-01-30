@@ -1,3 +1,30 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+    getDataImpactosComercio(lang);
+
+    // // ----------------------------------------------------------
+    // // Impactos produccion Color legend
+    // // ----------------------------------------------------------
+    var impacto_comercio_legend = L.control({ position: 'bottomright' });
+
+    impacto_comercio_legend.onAdd = function (calidad_map) {
+
+        var div = L.DomUtil.create('div', 'info legend');
+
+        div.innerHTML += `<i style="background: #ED8C95;"></i>${lang.will_decrese}<br>`;
+        div.innerHTML += `<i style="background: #f2b41c;"></i>${lang.will_key}<br>`;
+        div.innerHTML += `<i style="background: #10ad87;"></i>${lang.will_increase}<br>`;
+        div.innerHTML += `<i style="background: #919293;"></i>${lang.did_not_report}<br>`;
+
+        return div;
+    };
+
+    impacto_comercio_legend.addTo(mapImpactosComercio);
+
+})
+
 //************************************************************************************  
 // Map Settings
 //************************************************************************************
@@ -5,39 +32,30 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhdGttIiwiYSI6ImNraGdmbDZjejAxNTMycXBwNXppe
 // var mapImpactosComercio = L.map('map_impactos_produccion').setView([-6.5411393, -79.04523], 3);
 // L.mapbox.styleLayer(lang_style, styleLayerOptions).addTo(mapImpactosComercio);
 
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 var mapImpactosComercio = L.map('map_impactos_comercio').setView([-6.5411393, -79.04523], 2);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
-}).addTo(mapImpactosComercio);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(mapImpactosComercio);
 
 
-window.data_countries_impactos_comercio = null;
-window.data_countries_impactos_comercio_copy;
+    window.data_countries_impactos_comercio = null;
+    window.data_countries_impactos_comercio_copy;
 
-var impactosComercioLayer = L.geoJson().addTo(mapImpactosComercio);
+    var impactosComercioLayer = L.geoJson().addTo(mapImpactosComercio);
 
-// // ----------------------------------------------------------
-// // Impactos produccion Color legend
-// // ----------------------------------------------------------
-var impacto_comercio_legend = L.control({ position: 'bottomright' });
 
-impacto_comercio_legend.onAdd = function (calidad_map) {
-
-    var div = L.DomUtil.create('div', 'info legend');
-
-    div.innerHTML += `<i style="background: #ED8C95;"></i>Disminuyeron<br>`;
-    div.innerHTML += `<i style="background: #f2b41c;"></i>Se mantuvieron<br>`;
-    div.innerHTML += `<i style="background: #10ad87;"></i>Incrementaron<br>`;
-    div.innerHTML += `<i style="background: #919293;"></i>No reportó<br>`;
-
-    return div;
-};
-
-impacto_comercio_legend.addTo(mapImpactosComercio);
-
-async function getDataImpactosComercio(){
+async function getDataImpactosComercio(lang){
     if(window.data_countries_impactos_comercio != null) return;
     //displayShow('loader');
     await (async function(){
@@ -47,8 +65,8 @@ async function getDataImpactosComercio(){
                 window.data_countries_impactos_comercio = data.data;
                 //console.log(window.data_countries_impactos_comercio);
                 let opciones = getOptionsImpactoProduccionComercioSelect(data.data.features);
-                buildSelectImpactosProduccion('container-selects-impactos-comercio',opciones.elementos, 'select-elementos-comercio', 'Elementos');
-                buildSelectImpactosProduccion('container-selects-impactos-comercio',opciones.categorias, 'select-categorias-comercio', 'Categorias');
+                buildSelectImpactosProduccion('container-selects-impactos-comercio',opciones.elementos, 'select-elementos-comercio',  lang.element);
+                buildSelectImpactosProduccion('container-selects-impactos-comercio',opciones.categorias, 'select-categorias-comercio', lang.categories);
                 //buildSelectImpactosProduccion('container-selects-impactos-comercio',opciones.subcategorias, 'select-subcategorias-comercio', 'Subcategorias');
                 // //buildSelectImpactosProduccion(opciones.impactos, 'select-impactos', 'Impactos');
                 //displayHide('loader');
@@ -200,4 +218,3 @@ function removeIfHaveImpactReportsForComercio(){
 }
 
 
-getDataImpactosComercio();

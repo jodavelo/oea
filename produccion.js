@@ -1,3 +1,27 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+    getDataImpactosProduccion(lang)
+
+
+    // // ----------------------------------------------------------
+    // // Impactos produccion Color legend
+    // // ----------------------------------------------------------
+    var impacto_produccion_legend = L.control({ position: 'bottomright' });
+
+    impacto_produccion_legend.onAdd = function (calidad_map) {
+
+        var div = L.DomUtil.create('div', 'info legend');
+
+        div.innerHTML += `<i style="background: #f2b41c;"></i>${lang.reported_impact}<br>`;
+        div.innerHTML += `<i style="background: #10ad87;"></i>${lang.not_reported_impact}<br>`;
+
+        return div;
+    };
+
+    impacto_produccion_legend.addTo(mapImpactosProduccion);
+    })
 //************************************************************************************  
 //Impactos produccion Map Settings
 //************************************************************************************
@@ -5,11 +29,20 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhdGttIiwiYSI6ImNraGdmbDZjejAxNTMycXBwNXppe
 // var mapImpactosProduccion = L.map('map_impactos_produccion').setView([-6.5411393, -79.04523], 3);
 // L.mapbox.styleLayer(lang_style, styleLayerOptions).addTo(mapImpactosProduccion);
 
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 var mapImpactosProduccion = L.map('map_impactos_produccion').setView([-6.5411393, -79.04523], 2);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
 }).addTo(mapImpactosProduccion);
 
 
@@ -18,24 +51,8 @@ window.data_countries_impactos_produccion_copy;
 
 var impactosProduccionLayer = L.geoJson().addTo(mapImpactosProduccion);
 
-// // ----------------------------------------------------------
-// // Impactos produccion Color legend
-// // ----------------------------------------------------------
-var impacto_produccion_legend = L.control({ position: 'bottomright' });
 
-impacto_produccion_legend.onAdd = function (calidad_map) {
-
-    var div = L.DomUtil.create('div', 'info legend');
-
-    div.innerHTML += `<i style="background: #f2b41c;"></i>Reportó impactos<br>`;
-    div.innerHTML += `<i style="background: #10ad87;"></i>No reportó impacto<br>`;
-
-    return div;
-};
-
-impacto_produccion_legend.addTo(mapImpactosProduccion);
-
-async function getDataImpactosProduccion(){
+async function getDataImpactosProduccion(lang){
     if(window.data_countries_impactos_produccion != null) return;
     await (async function(){  
         fetch('https://cropobs-central.alliance.cgiar.org/api/v2/flar/covid-section/production')
@@ -45,9 +62,9 @@ async function getDataImpactosProduccion(){
                 window.data_countries_impactos_produccion_copy = data.data;
                 let opciones = getOptionsImpactoProduccionComercioSelect(data.data.features);
                 console.log(opciones)
-                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.elementos, 'select-elementos', 'Elementos');
-                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.categorias, 'select-categorias', 'Categorias');
-                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.subcategorias, 'select-subcategorias', 'Subcategorias');
+                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.elementos, 'select-elementos', lang.element);
+                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.categorias, 'select-categorias', lang.categories);
+                buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.subcategorias, 'select-subcategorias', lang.subcategories);
                 //buildSelectImpactosProduccion(opciones.impactos, 'select-impactos', 'Impactos');
                 listenerSelectsImpactos();
                 
@@ -238,4 +255,3 @@ function filterDataImpactosProduccion(dataImpactosProduccion){
     return obj;
 }
 
-getDataImpactosProduccion()

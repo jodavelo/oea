@@ -1,36 +1,54 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+    getDataPerspectivas(lang);
+
+    // ----------------------------------------------------------
+    // Perspectivas map Color legend
+    // ----------------------------------------------------------
+    var impacto_perspectivas_legend = L.control({ position: 'bottomright' });
+
+    impacto_perspectivas_legend.onAdd = function (calidad_map) {
+
+        var div = L.DomUtil.create('div', 'info legend');
+
+        div.innerHTML += `<i style="background: #ED8C95;"></i>${lang.will_decrese}<br>`;
+        div.innerHTML += `<i style="background: #f2b41c;"></i>${lang.will_key}<br>`;
+        div.innerHTML += `<i style="background: #10ad87;"></i>${lang.will_increase}<br>`;
+        div.innerHTML += `<i style="background: #919293;"></i>${lang.did_not_report}<br>`;
+
+        return div;
+    };
+
+    impacto_perspectivas_legend.addTo(mapImpactosPerspectivas);
+
+})
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 //************************************************************************************  
 //Impactos perspectivas Map Settings
 //************************************************************************************
 var mapImpactosPerspectivas = L.map('map_impactos_perspectivas').setView([-6.5411393, -79.04523], 2);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
 }).addTo(mapImpactosPerspectivas);
 
 window.data_countries_impactos_perspectivas = null;
 var impactosPerspetivasLayer = L.geoJson().addTo(mapImpactosPerspectivas);
 
-// ----------------------------------------------------------
-// Perspectivas map Color legend
-// ----------------------------------------------------------
-var impacto_perspectivas_legend = L.control({ position: 'bottomright' });
 
-impacto_perspectivas_legend.onAdd = function (calidad_map) {
-
-    var div = L.DomUtil.create('div', 'info legend');
-
-    div.innerHTML += `<i style="background: #ED8C95;"></i>Disminuirá<br>`;
-    div.innerHTML += `<i style="background: #f2b41c;"></i>Mantendrá<br>`;
-    div.innerHTML += `<i style="background: #10ad87;"></i>Incrementará<br>`;
-    div.innerHTML += `<i style="background: #919293;"></i>No reportó<br>`;
-
-    return div;
-};
-
-impacto_perspectivas_legend.addTo(mapImpactosPerspectivas);
-
-async function getDataPerspectivas(){
+async function getDataPerspectivas(lang){
     if(window.data_countries_impactos_perspectivas != null) return;
     //displayShow('loader');
     await (async function(){
@@ -39,8 +57,8 @@ async function getDataPerspectivas(){
             .then( data => {
                 window.data_countries_impactos_perspectivas = data.data;
                 let opciones = getOptionsImpactoPerspectivasSelect(data.data.features);
-                buildSelectImpactosProduccion('container-selects-impactos-perspectivas',opciones.elementos, 'select-elementos-perspectivas', 'Elementos');
-                buildSelectImpactosProduccion('container-selects-impactos-perspectivas',opciones.categorias, 'select-categorias-perspectivas', 'Categorias');
+                buildSelectImpactosProduccion('container-selects-impactos-perspectivas',opciones.elementos, 'select-elementos-perspectivas', lang.element);
+                buildSelectImpactosProduccion('container-selects-impactos-perspectivas',opciones.categorias, 'select-categorias-perspectivas', lang.categories);
                 //displayHide('loader');
                 listenerSelectsPerspectivas();
                 mapColorPerspectivas();
@@ -293,5 +311,4 @@ function removeAccentsInString(str){
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-getDataPerspectivas()
 

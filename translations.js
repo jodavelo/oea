@@ -73,6 +73,7 @@ fetch(`locale/${get("lang")}.json`)
     let importFacilitationText = document.getElementById('import-facilitation-text');
     let exportFacilitationText = document.getElementById('export-facilitation-text');
 
+
         policiesMitigateEffects.innerText =lang.policies_mitigate_effects;
         approach.innerText = lang.approach;
         extent.innerText = lang.extent;
@@ -142,6 +143,8 @@ fetch(`locale/${get("lang")}.json`)
         foreignTradeText.innerText = lang.foreign_trade_policies_text;
         importFacilitationText.innerText = lang.import_facilitation_text;
         exportFacilitationText.innerText = lang.export_facilitation_text;
+        
+       
 });
 
 function get(name){

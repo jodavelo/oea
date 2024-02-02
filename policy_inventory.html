@@ -64,13 +64,13 @@
             <div class="container-fluid" style="height: 100%; min-width:100vw !important;">  
             	<div class="row">
                     <div class="col-lg-6 col-md-12 p-l-0 p-r-0 m-b-30 map-grid" >
-                        <h3 class="text-center flar-blue-dark">Mapa de politicas</h3>
+                        <h3 class="text-center flar-blue-dark" id="policy-map">Mapa de politicas</h3>
                         <div id="cov_political_options" class="custom-select-map form-group">
                             <select id="political_sel_cluster" class="form-control-sm">
-                                <option value="">Clústers/Regiones</option>
-                                <option value="1">Andina</option>
-                                <option value="3">Cono sur</option>
-                                <option value="2">Centro América y Caribe</option>
+                                <option value="" id="cluster-option">Clústers/Regiones</option>
+                                <option value="1" id="andean-option">Andina</option>
+                                <option value="3" id="southern-cone-option">Cono sur</option>
+                                <option value="2" id="lac-option">Centro América y Caribe</option>
                             </select>
                         </div>
                         <div id="map_politicas"></div>
@@ -107,6 +107,8 @@
     <script src="map.init.js" ></script>
     <script src="script.js" ></script>
     <script src="covid.map.politicas.js"></script>
+    <script src="translations2.js" ></script>
+
 </body>
 
 </html>

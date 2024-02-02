@@ -80,9 +80,18 @@
     "price_control_text": "Controle dos preços dos alimentos por entidades governamentais para evitar fraudes e especulação.",
     "foreign_trade_policies_text": "Medidas focadas em garantir a exportação e importação de alimentos e insumos para produção durante a pandemia. Estas medidas incluem a facilitação da obtenção de certificados fitossanitários e de origem, o desenvolvimento de protocolos logísticos nos portos e medidas de alívio tarifário.",
     "import_facilitation_text": "Medidas relacionadas à garantia de importações.",
-    "export_facilitation_text": "Medidas relacionadas à garantia de exportações."
-
-
-
-
+    "export_facilitation_text": "Medidas relacionadas à garantia de exportações.",
+    "policies_map": "Mapa de políticas",
+    "cluster": "Clusters/regiões",
+    "andean": "Andino",
+    "southern_cone": "Cone sul",
+    "lac": "América Central e Caribe",
+    "impact_rice_sector": "Impacto no setor do arroz",
+    "policy_analysis": "Análise política",
+    "policy_analysis_paragraph_1": "O impacto que as medidas implementadas tiveram no sector do arroz são difíceis de quantificar no curto prazo e não foram objecto de diagnóstico. O presente diagrama apresenta os possíveis benefícios que estas medidas podem ter na cadeia de valor do arroz.",
+    "policy_analysis_paragraph_2": "Medidas centradas no desenvolvimento logístico da cadeia de valor e na digitalização dos processos podem reduzir os custos de transação, facilitando determinados processos, quer ao nível do produtor, quer ao nível da indústria, enquanto as normas de segurança beneficiam os trabalhadores da indústria, reduzindo a possibilidade de contágio, e ao consumidor, fornecendo um produto de maior qualidade.",
+    "policy_analysis_paragraph_3": "As medidas de apoio ao produtor, se cumprirem o seu objectivo de incentivo à produção, podem aumentar a oferta de arroz a médio prazo, beneficiando os fornecedores de factores de produção através de uma maior procura dos mesmos. Por sua vez, as compras diretas por parte dos governos geraram um benefício imediato para os produtores e indústrias de arroz em alguns países. Da mesma forma, as medidas de apoio ao consumidor podem impulsionar a procura.",
+    "policy_analysis_paragraph_4": "No que diz respeito às políticas de comércio exterior, o impacto varia dependendo do contexto e da perspectiva. A aprovação de novas cotas de importação pode beneficiar o consumidor ao aumentar a oferta e reduzir os preços, mas ao mesmo tempo representa um risco para os produtores quando conseguem satisfazer essa oferta. Esta política também poderia afectar a competitividade de outros países da região, num cenário em que o arroz importado com preferências tarifárias é exportado para outros países. Por outro lado, as políticas centradas na restrição das importações poderiam aumentar os preços nos mercados nacionais, afectando os consumidores e os exportadores regionais, em favor dos produtores locais.",
+    "policy_analysis_paragraph_5": "No que diz respeito às exportações, favorecer as exportações poderia afetar a oferta local; no entanto, a nível regional, exportadores como Uruguai, Argentina, Paraguai e Guiana conseguem suprir a demanda local sem problemas. No Equador, o mercado local foi priorizado em detrimento das exportações, devido ao aumento dos preços a nível nacional. Em contrapartida, a restrição às exportações poderia reduzir o preço no mercado nacional ou aumentar o preço no mercado internacional, seja dependendo da oferta e da procura no mercado nacional ou da magnitude que o país representa na oferta exportável a nível global ou regional.",
+    "policy_analysis_paragraph_6": "O impacto deste conjunto de políticas varia em magnitude, alcance e timing, além de estar intimamente relacionado com a situação de cada país. As mudanças que estas políticas geram do lado da oferta, seja devido a alterações na produção ou no fluxo do comércio internacional, ou na procura, tanto do consumidor nacional como das oportunidades de exportação, afectarão o preço do arroz para o consumidor."
 }

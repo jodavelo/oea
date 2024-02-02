@@ -80,10 +80,19 @@
     "price_control_text": "Control de precios de los alimentos por parte de las entidades gubernamentales a fin de evitar el agio y la especulación.",
     "foreign_trade_policies_text": "Medidas enfocadas a garantizar la exportación e importación de alimentos e insumos para la producción durante la pandemia. Estas medidas incluyen la facilitación para la obtención de certificados fitosanitarios y de origen, desarrollo de protocolos logísticos en puertos y medidas de alivio arancelario.",
     "import_facilitation_text": "Medidas relacionadas a garantizar las importaciones.",
-    "export_facilitation_text": "Medidas relacionadas a garantizar las exportaciones."
-   
-
-
-
+    "export_facilitation_text": "Medidas relacionadas a garantizar las exportaciones.",
+    "policies_map": "Mapa de políticas",
+    "cluster": "Clústers/Regiones",
+    "andean": "Andina",
+    "southern_cone": "Cono sur",
+    "lac": "Centro América y Caribe",
+    "impact_rice_sector": "Impacto en el sector arrocero",
+    "policy_analysis": "Análisis de políticas",
+    "policy_analysis_paragraph_1": "El impacto que las medias implementadas han tenido en rubro arrocero son difíciles de cuantificar en el corto plazo y no fueron objeto del diagnóstico. El presenta esquema presenta los posibles beneficios que estas medidas pueden tener la cadena de valor del arroz.",
+    "policy_analysis_paragraph_2": "Medidas enfocadas en el desarrollo logístico de la cadena de valor y la digitalización de procesos pueden reducir los costos de transacción al facilitar ciertos procesos, ya sea a nivel del productor o de la industria, mientras que las normas de inocuidad benefician a los trabajadores de la cadena al reducir la posibilidad de contagio, y al consumidor, al otorgarle un producto de mayor calidad.",
+    "policy_analysis_paragraph_3": "Las medidas de apoyo al productor, de cumplir su objetivo de incentivar la producción, pueden incrementar la oferta de arroz en el mediano plazo, beneficiando a su vez a los proveedores de insumos a través de una mayor demanda de los mismos. Por su lado, las compras directas por parte de los gobiernos generaron un beneficio inmediato para los productores y las industrias de arroz en algunos países. Asimismo, las medidas de apoyo al consumidor pueden favorecer la demanda.",
+    "policy_analysis_paragraph_4": "En cuanto a las políticas de comercio exterior, el impacto varía según el contexto y la perspectiva. La aprobación de nuevos contingentes de importación puede beneficiar al consumidor al incrementar la oferta y reducir los precios, pero a su vez representa un riesgo para los productores cuando estos están en la capacidad de satisfacer esa oferta. Esta política podría también afectar la competitividad de otros países de la región, bajo un escenario en el que el arroz importado con preferencias arancelarias sea exportado a otros países. Por otro lado, políticas enfocadas en la restricción de importaciones podría incrementar los precios en los mercados nacionales, afectando a los consumidores y a exportadores regionales, a favor de los productores locales.",
+    "policy_analysis_paragraph_5": "En cuanto a las exportaciones, favorecer las exportaciones podría afectar la oferta local, no obstante, a nivel regional exportadores como Uruguay, Argentina, Paraguay y Guyana logran abastecer la demanda local sin problemas. En Ecuador se priorizó el mercado local sobre las exportaciones, debido a un incremento en los precios a nivel nacional. En contraposición, la restricción a las exportaciones podría reducir el precio en el mercado nacional o incrementar el precio en el mercado internacional, ya sea en función de la oferta y demanda en el mercado nacional o la magnitud que representa el país en la oferta exportable a nivel mundial o regional.",
+    "policy_analysis_paragraph_6": "El impacto de este conjunto de políticas varía en magnitud, alcance y temporalidad, además de estar en estrecha relación con la coyuntura de cada país. Los cambios que estas políticas generen por el lado de la oferta, ya sea por cambios en la producción o en el flujo de comercio internacional, o la demanda, tanto del consumidor nacional como de las oportunidades de exportación, va a afectar el precio del arroz al consumidor."   
 
 }

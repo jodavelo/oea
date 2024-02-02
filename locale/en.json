@@ -80,5 +80,20 @@
     "price_control_text": "Control of food prices by government entities to prevent gouging and speculation.",
     "foreign_trade_policies_text": "Measures focused on guaranteeing the export and import of food and inputs for production during the pandemic. These measures include facilitation for obtaining phytosanitary and origin certificates, development of logistics protocols in ports and tariff relief measures.",
     "import_facilitation_text": "Measures related to guaranteeing imports.",
-    "export_facilitation_text": "Measures related to guaranteeing exports."
+    "export_facilitation_text": "Measures related to guaranteeing exports.",
+    "policies_map": "Policy map",
+    "cluster": "Clusters/Regions",
+    "andean": "Andean",
+    "southern_cone": "Southern cone",
+    "lac": "Central America and Caribbean",
+    "impact_rice_sector": "Impact on the rice sector",
+    "policy_analysis": "Policy analysis",
+    "policy_analysis_paragraph_1": "The impact that the measures implemented have had on the rice sector are difficult to quantify in the short term and were not the subject of the diagnosis. The present diagram presents the possible benefits that these measures may have on the rice value chain.",
+    "policy_analysis_paragraph_2": "Measures focused on the logistical development of the value chain and the digitalization of processes can reduce transaction costs by facilitating certain processes, either at the producer or industry level, while safety standards benefit industry workers. chain by reducing the possibility of contagion, and to the consumer, by providing a higher quality product.",
+    "policy_analysis_paragraph_3": "Producer support measures, if they meet their objective of encouraging production, can increase the supply of rice in the medium term, benefiting input suppliers through greater demand for them. For its part, direct purchases by governments generated an immediate benefit for rice producers and industries in some countries. Likewise, consumer support measures can boost demand.",
+    "policy_analysis_paragraph_4": "Regarding foreign trade policies, the impact varies depending on the context and perspective. The approval of new import quotas can benefit the consumer by increasing supply and reducing prices, but at the same time it represents a risk for producers when they are able to satisfy that supply. This policy could also affect the competitiveness of other countries in the region, under a scenario in which rice imported with tariff preferences is exported to other countries. On the other hand, policies focused on import restriction could increase prices in national markets, affecting consumers and regional exporters, in favor of local producers.",
+    "policy_analysis_paragraph_5": "Regarding exports, favoring exports could affect local supply; however, at a regional level, exporters such as Uruguay, Argentina, Paraguay and Guyana manage to supply local demand without problems. In Ecuador, the local market was prioritized over exports, due to an increase in prices at the national level. In contrast, the restriction on exports could reduce the price in the national market or increase the price in the international market, either depending on supply and demand in the national market or the magnitude that the country represents in the exportable supply to global or regional level.",
+    "policy_analysis_paragraph_6": "The impact of this set of policies varies in magnitude, scope and timing, in addition to being closely related to the situation of each country. The changes that these policies generate on the supply side, whether due to changes in production or in the flow of international trade, or demand, both from the national consumer and from export opportunities, will affect the price of rice. to the consumer."
+
+
 }

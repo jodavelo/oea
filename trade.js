@@ -59,7 +59,7 @@ async function getDataImpactosComercio(lang){
     if(window.data_countries_impactos_comercio != null) return;
     //displayShow('loader');
     await (async function(){
-        fetch('https://cropobs-central.alliance.cgiar.org/api/v1/covid-seccion/comercio')
+        fetch('https://cropobs-central.ciat.cgiar.org/api/v1/covid-seccion/comercio')
             .then( response  => response.json())
             .then( data => {
                 window.data_countries_impactos_comercio = data.data;

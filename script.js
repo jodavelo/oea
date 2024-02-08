@@ -205,28 +205,41 @@ function removeAllChildFromContainerDiv(id){
  * @returns cuatro objetos, cada objeto contiene un array de objetos, donde cada objecto
  *  cuenta con la estructura {id:.., text:..}  
  */
+function getQueryParamas () {
+    params = "{\"" + 
+            window.location.search
+         .replace( /\?/gi, "" )
+         .replace( /\&/gi, "\",\"" )
+         .replace( /\=/gi, "\":\"" ) +
+         "\"}";
+        return  JSON.parse( params );
+}
 function getOptionsImpactoProduccionComercioSelect(originalData){
     let elementos = [];
     let categorias = [];
     let subcategorias = [];
     let impactos = [];
+    let qp = getQueryParamas()
     //elementos.push({"id": 'no-seleccion', "text": 'Seleccione una opción'});
     originalData.forEach(object => {
         object.properties.data.forEach(elementObject => {
+            console.log(object.properties.data, "aquii")
+            let language = new URLSearchParams(window.location.search);
+
             elementos.push({
                 "id": elementObject.id_element,
-                "text": elementObject.descripcion
+                "text": elementObject[`descripcion_${qp.lang}`] || elementObject.descripcion
             });
             elementObject.categorias.forEach(categoryObject => {
                 categorias.push({
                     "id": categoryObject.id_categoria,
-                    "text": categoryObject.descripcion
+                    "text": categoryObject[`descripcion_${qp.lang}`] || categoryObject.descripcion
                 });
                 categoryObject.subcategorias.forEach(subcategoryObject => {
                     //console.log(subcategoryObject);
                     subcategorias.push({
                         "id": subcategoryObject.id_subcategoria,
-                        "text": subcategoryObject.descripcion
+                        "text": subcategoryObject[`descripcion_${qp.lang}`] || subcategoryObject.descripcion
                     });
                     subcategoryObject.impactos.forEach(impactObject => {
                         impactos.push({

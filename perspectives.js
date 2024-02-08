@@ -52,7 +52,7 @@ async function getDataPerspectivas(lang){
     if(window.data_countries_impactos_perspectivas != null) return;
     //displayShow('loader');
     await (async function(){
-        fetch('https://cropobs-central.alliance.cgiar.org/api/v1/covid-seccion/perspectivas')
+        fetch('https://cropobs-central.ciat.cgiar.org/api/v1/covid-seccion/perspectivas')
             .then( response  => response.json())
             .then( data => {
                 window.data_countries_impactos_perspectivas = data.data;
@@ -136,20 +136,36 @@ function listenerSelectsPerspectivas(){
     });
 }
 
+function getQueryParamas () {
+    params = "{\"" + 
+            window.location.search
+         .replace( /\?/gi, "" )
+         .replace( /\&/gi, "\",\"" )
+         .replace( /\=/gi, "\":\"" ) +
+         "\"}";
+        return  JSON.parse( params );
+}
+
 function getOptionsImpactoPerspectivasSelect(originalData){
     let elementos = [];
     let categorias = [];
+    let qp = getQueryParamas()
+
     //elementos.push({"id": 'no-seleccion', "text": 'Seleccione una opción'});
     originalData.forEach(object => {
         object.properties.data.forEach(elementObject => {
+            console.log(object.properties.data, "aquii")
+
+            let language = new URLSearchParams(window.location.search);
+
             elementos.push({
                 "id": elementObject.id_element,
-                "text": elementObject.descripcion
+                "text": elementObject[`descripcion_${qp.lang}`] || elementObject.descripcion
             });
             elementObject.categorias.forEach(categoryObject => {
                 categorias.push({
                     "id": categoryObject.id_categoria,
-                    "text": categoryObject.descripcion
+                    "text": categoryObject[`descripcion_${qp.lang}`] || categoryObject.descripcion
                 });
             });
         });

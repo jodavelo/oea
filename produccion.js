@@ -55,13 +55,13 @@ var impactosProduccionLayer = L.geoJson().addTo(mapImpactosProduccion);
 async function getDataImpactosProduccion(lang){
     if(window.data_countries_impactos_produccion != null) return;
     await (async function(){  
-        fetch('https://cropobs-central.alliance.cgiar.org/api/v2/flar/covid-section/production')
+        fetch('https://cropobs-central.ciat.cgiar.org/api/v2/flar/covid-section/production')
             .then( response  => response.json())
             .then( data => {
                 window.data_countries_impactos_produccion = data.data;
                 window.data_countries_impactos_produccion_copy = data.data;
                 let opciones = getOptionsImpactoProduccionComercioSelect(data.data.features);
-                console.log(opciones)
+                console.log(opciones, 'opcioneeeeees')
                 buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.elementos, 'select-elementos', lang.element);
                 buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.categorias, 'select-categorias', lang.categories);
                 buildSelectImpactosProduccion('container-selects-impactos-produccion',opciones.subcategorias, 'select-subcategorias', lang.subcategories);

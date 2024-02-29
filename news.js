@@ -1,3 +1,31 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+
+    let titleNews = document.getElementById('news-title');
+    let newsLabel1 = document.getElementById('news-label1');
+    let newsLabel2 = document.getElementById('news-label2');
+    let newsButton = document.getElementById('news-button');
+
+
+    titleNews.innerText = lang.news_title;
+    newsLabel1.innerText = lang.news_label1;
+    newsLabel2.innerText = lang.news_label2;
+    newsButton.innerText = lang.news_button;
+
+
+});
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 
 window.covid_news_array = null;
 window.jsonData = [];

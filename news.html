@@ -62,7 +62,7 @@
             <div class="container-fluid" style="height: 100%; min-width:100vw !important;">  
             	<div class="row">
                     <div class="col-lg-12 col-md-12 p-l-0 p-r-0 m-b-30" >
-                        <h2 class="text-center flar-blue-dark">Noticias del sector arrocero en el contexto de la Pandemia de COVID-19</h2>
+                        <h2 class="text-center flar-blue-dark" id="news-title">Noticias del sector arrocero en el contexto de la Pandemia de COVID-19</h2>
                         <div class="row">
                             <div class="col-md-6 m-t-4 custom-filter-country">
                                 <div id="filters" class="form-group"></div>
@@ -70,15 +70,15 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Desde</label>
+                                        <label id="news-label1">Desde</label>
                                         <input type="date" class="form-control" id="datefilterfrom" data-date-split-input="true">
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Hasta</label>
+                                        <label id="news-label2">Hasta</label>
                                         <input type="date" class="form-control" id="datefilterto" data-date-split-input="true">
                                     </div>
                                     <div class="col-md-4 button-clear-filters">
-                                        <button onclick="resetNewsFilter()" class="btn bg-flar-blue-dark">Limpiar</button>
+                                        <button onclick="resetNewsFilter()" class="btn bg-flar-blue-dark" id="news-button">Limpiar</button>
                                     </div>
                                 </div>
                             </div>

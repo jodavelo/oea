@@ -1,3 +1,26 @@
+
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+
+    let priceMapTitle = document.getElementById('rice-prices-title');
+    let priceInternationaTitle = document.getElementById('title_precios');
+
+        priceMapTitle.innerText = lang.rice_prices_title
+        priceInternationaTitle.innerText = lang.international_prices
+
+});
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 //Chart.defaults.global.defaultFontSize = 10;
 
 //************************************************************************************  
@@ -335,7 +358,27 @@ async function updatePreciosCharts(request = "") {
     //console.log(colorChart);
     await $.get(`https://cropobs-central.alliance.cgiar.org/api/v1/covid-seccion/get-prices-nales${ request }`, function (objResult) {
         //displayHide('loader');
-        let titleFaoChart = 'Índice FAO para distintos tipos de arroz '+objResult.data[0].comments;
+        let dict_title_prices = {
+            "es": "Índice FAO para distintos tipos de arroz",
+            "en": "FAO index for different types of rice",
+            "pt": "Índice FAO para diferentes tipos de arroz"
+
+        }
+        let dict_title_int_prices = {
+            "es": "Precios internacionales de arroz",
+            "en": "International rice prices",
+            "pt": "Preços internacionais do arroz"
+
+        }
+        let dict_title_prices_nominal = {
+            "es": "Nominal value (USD/ton)",
+            "en": "Valor nominal (USD/ton)",
+            "pt": "Valor nominal (USD/tonelada)"
+
+        }
+        console.log(getQueryParamas())
+        //console.log(dict_title_prices["en"],"xxx")
+        let titleFaoChart = dict_title_prices[getQueryParamas().lang]+ " "+objResult.data[0].comments;
         objResult.data.forEach( object => {
             arrayCountryCurrency.push(object.label);
             let dataArray = [];
@@ -363,7 +406,7 @@ async function updatePreciosCharts(request = "") {
         //let longDateStr = moment(sort[0], 'Y-M-D').locale('es').format('MMMM Y');
         datesWithFormat = formatForDate(sort);
         if(objResult.data2 != null){
-            let titleNominalChart = 'Precios internacionales de arroz '+objResult.data2[0].comments;
+            let titleNominalChart = dict_title_int_prices[getQueryParamas().lang]+ " "+objResult.data2[0].comments;
             objResult.data2.forEach( object => {
                 arrayCountryCurrencyData2.push(object.label);
                 let data2Array = [];

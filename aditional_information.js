@@ -1,3 +1,28 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+
+    let titleRiceSectorInformation = document.getElementById('rice-sector-information');
+    let lac = document.getElementById('title_produccion');
+   
+
+
+    titleRiceSectorInformation.innerText = lang.rice_sector_information;
+    lac.innerText = lang.latin_american_caribbean;
+   
+
+
+});
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+ }
+
+// console.log(get("lang"))
+
+var locale = get("lang");
 //------------------------------------------------------------------------------------  
 //Instituciones Map Settings
 //------------------------------------------------------------------------------------

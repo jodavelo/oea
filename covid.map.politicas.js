@@ -1,3 +1,21 @@
+fetch(`locale/${get("lang")}.json`)
+  .then(response => response.json())
+  .then(lang => {
+    console.log('Contenido del archivo JSON:', lang);
+
+
+
+});
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+       return decodeURIComponent(name[1]);
+}
+
+// console.log(get("lang"))
+
+var locale = get("lang");
+
 //************************************************************************************  
 //Political Map Settings
 //************************************************************************************
@@ -126,10 +144,21 @@ function politicalCountryStyle(feature) {
 // ***********************************************************************************
 // Data table controller
 // ***********************************************************************************
+function getQueryParamas () {
+    params = "{\"" + 
+            window.location.search
+         .replace( /\?/gi, "" )
+         .replace( /\&/gi, "\",\"" )
+         .replace( /\=/gi, "\":\"" ) +
+         "\"}";
+        return  JSON.parse( params );
+}
+
 async function dataTablePoliticalController(request) {
+    let qp = getQueryParamas()
 
     await (async function () {
-        fetch('https://cropobs-central.alliance.cgiar.org/api/v1/covid-seccion/politicas').then(function (response) {
+        fetch('https://cropobs-central.ciat.cgiar.org/api/v1/covid-seccion/politicas').then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log(data.data)
@@ -155,9 +184,10 @@ async function dataTablePoliticalController(request) {
             for (let idx = 0; idx < data.data.length; idx++) {
                 let trBody = document.createElement('tr');
                 let tdMedida = document.createElement('td');
-                tdMedida.innerHTML = data.data[idx].medida;
+                tdMedida.innerHTML = data.data[idx][`medida_${qp.lang}`];
                 let tdDescripcion = document.createElement('td');
-                tdDescripcion.innerHTML = data.data[idx].descripcion;
+                tdDescripcion.innerHTML = data.data[idx][`descripcion_${qp.lang}`];
+                console.log(data.data[idx].medida_en, "que es estoooo??")
                 let tdEnfoques = document.createElement('td');
                 let ulEnfoques = document.createElement('ul');
                 for (let idx2 = 0; idx2 < data.data[idx].enfoques.length; idx2++) {

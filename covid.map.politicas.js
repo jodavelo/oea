@@ -184,9 +184,9 @@ async function dataTablePoliticalController(request) {
             for (let idx = 0; idx < data.data.length; idx++) {
                 let trBody = document.createElement('tr');
                 let tdMedida = document.createElement('td');
-                tdMedida.innerHTML = data.data[idx][`medida_${qp.lang}`];
+                tdMedida.innerHTML = data.data[idx][`medida_${qp.lang}`] || data.data[idx].medida;
                 let tdDescripcion = document.createElement('td');
-                tdDescripcion.innerHTML = data.data[idx][`descripcion_${qp.lang}`];
+                tdDescripcion.innerHTML = data.data[idx][`descripcion_${qp.lang}`] || data.data[idx].descripcion ;
                 console.log(data.data[idx].medida_en, "que es estoooo??")
                 let tdEnfoques = document.createElement('td');
                 let ulEnfoques = document.createElement('ul');

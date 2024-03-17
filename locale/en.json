@@ -15,6 +15,7 @@
     "policies_mitigate_effects": "Policies to mitigate the effects",
     "approach": "Approach",
     "extent": "Extent",
+    "description": "Description",
     "countries_where_implemented": "Countries where they have been implemented",
     "mesures_garantee_sector1": "Measures to guarantee the functioning of sector 1",
     "producer_support_mesures": "Producer support measures",

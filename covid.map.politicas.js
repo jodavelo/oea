@@ -3,7 +3,7 @@ fetch(`locale/${get("lang")}.json`)
   .then(lang => {
     console.log('Contenido del archivo JSON:', lang);
 
-
+    dataTablePoliticalController(lang)
 
 });
 
@@ -154,9 +154,9 @@ function getQueryParamas () {
         return  JSON.parse( params );
 }
 
-async function dataTablePoliticalController(request) {
+async function dataTablePoliticalController(lang) {
     let qp = getQueryParamas()
-
+    
     await (async function () {
         fetch('https://cropobs-central.ciat.cgiar.org/api/v1/covid-seccion/politicas').then(function (response) {
             return response.json();
@@ -169,13 +169,13 @@ async function dataTablePoliticalController(request) {
             let tr = document.createElement('tr');
             let thMedida = document.createElement('th');
             thMedida.setAttribute('scope', 'col');
-            thMedida.innerText = 'Medida';
+            thMedida.innerText = lang.extent;
             let thDescripcion = document.createElement('th');
             thDescripcion.setAttribute('scope', 'col');
-            thDescripcion.innerText = 'Descripcion';
+            thDescripcion.innerText = lang.description;
             let thEnfoques = document.createElement('th');
             thEnfoques.setAttribute('scope', 'col');
-            thEnfoques.innerText = 'Enfoques';
+            thEnfoques.innerText = lang.approach;
             let thUrl = document.createElement('th');
             thUrl.setAttribute('scope', 'col');
             thUrl.innerText = 'Url';
@@ -344,4 +344,4 @@ $('#political_sel_cluster').change(function () {
 });
 
 getCountriesCovidSeccion();
-dataTablePoliticalController()
+// dataTablePoliticalController()

@@ -171,7 +171,7 @@ $(document).ready(function(){
                 xAxes: [
                     {
                         ticks:{
-                            maxRotation: 0,
+                            maxRotation: 20,
                             display: true,
                             autoSkip: true,
                             maxTicksLimit: 30,
@@ -240,7 +240,7 @@ $(document).ready(function(){
                 xAxes: [
                     {
                         ticks:{
-                            maxRotation: 0,
+                            minRotation: 90,
                             display: true,
                             autoSkip: true,
                             maxTicksLimit: 30,
@@ -308,7 +308,7 @@ $(document).ready(function(){
                 xAxes: [
                     {
                         ticks:{
-                            maxRotation: 0,
+                            minRotation: 90,
                             display: true,
                             autoSkip: true,
                             maxTicksLimit: 30,

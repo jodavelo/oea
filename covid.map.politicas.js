@@ -192,7 +192,7 @@ async function dataTablePoliticalController(lang) {
                 let ulEnfoques = document.createElement('ul');
                 for (let idx2 = 0; idx2 < data.data[idx].enfoques.length; idx2++) {
                     let liEnfoque = document.createElement('li');
-                    liEnfoque.innerHTML = `${data.data[idx].enfoques[idx2].enfoque}, ${data.data[idx].enfoques[idx2].tipo}`;
+                    liEnfoque.innerHTML = `${data.data[idx].enfoques[idx2][`enfoque_${qp.lang}`] || data.data[idx].enfoques[idx2].enfoque}, ${ data.data[idx].enfoques[idx2][`tipo_${qp.lang}`] ||  data.data[idx].enfoques[idx2].tipo}`;
                     ulEnfoques.appendChild(liEnfoque);
                 }
                 tdEnfoques.appendChild(ulEnfoques);
